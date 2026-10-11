@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <title>QR Code Generator</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Welcome to ACE QR Code Generator</h1>
+    <form class="form_u" action="/cr" method="post">
+        <label>Enter A URL:</label><br>
+        <input class="input" name="url_input" type="text" placeholder="https://example.com" required><br><br>
+        <button type="submit">Create</button>
+    </form>
+    <br>
+    <form>
+        <label>Your QR code:</label><br>
+        {% if img %}
+            <img src="/{{ img }}" alt="QR Code" width="200">
+        {% endif %}
+
+        <a href="/{{ img }}" class="download-btn" download="qrcode.png">
+                📥 Download QR Code
+        </a>
+    </form>
+
+    <!-- <img src="{{img if img else None}} " alt="QR Code" width="200"> -->
+
+
+</body>
+</html>
